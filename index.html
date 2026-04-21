@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>13 Months with You 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush: #fce8e8;
+      --rose: #e8a0a0;
+      --deep-rose: #c9606a;
+      --petal: #f9d5d5;
+      --cream: #fff8f5;
+      --warm: #7a3f45;
+      --gold: #c9a96e;
+      --text: #4a2528;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* FLOATING PETALS */
+    .petals-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .petal {
+      position: absolute;
+      top: -40px;
+      font-size: 1.2rem;
+      opacity: 0.5;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(-40px) rotate(0deg) translateX(0); opacity: 0.6; }
+      50%  { transform: translateY(50vh) rotate(180deg) translateX(40px); }
+      100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: radial-gradient(ellipse at 60% 30%, #fce4ec 0%, #fff8f5 60%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8bbd0aa, transparent 70%);
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffe0ecaa, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1.4s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .month-badge {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      letter-spacing: 0.35em;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      border: 1px solid var(--rose);
+      padding: 0.4rem 1.4rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      animation: fadeUp 1.4s 0.2s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--warm);
+      margin-bottom: 0.5rem;
+      animation: fadeUp 1.4s 0.4s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--deep-rose);
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      color: var(--rose);
+      margin-bottom: 2.5rem;
+      animation: fadeUp 1.4s 0.6s ease both;
+    }
+
+    .from-to {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 300;
+      animation: fadeUp 1.4s 0.8s ease both;
+    }
+
+    .heart-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem auto;
+      opacity: 0.5;
+    }
+    .heart-divider::before,
+    .heart-divider::after {
+      content: '';
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--rose));
+    }
+    .heart-divider::after {
+      background: linear-gradient(to left, transparent, var(--rose));
+    }
+
+    /* SCROLL ARROW */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      animation: bounce 2s ease infinite, fadeUp 2s 1s ease both;
+      z-index: 2;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--warm);
+      margin-bottom: 2rem;
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--deep-rose); }
+
+    /* TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.4rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--rose), var(--petal), var(--rose));
+    }
+    .timeline-item {
+      position: relative;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.15rem;
+      top: 0.35rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--deep-rose);
+      box-shadow: 0 0 0 4px var(--petal);
+    }
+    .timeline-month {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--warm);
+      line-height: 1.5;
+    }
+
+    /* REASONS GRID */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .reason-card {
+      background: linear-gradient(135deg, #fff0f3, #fff8f5);
+      border: 1px solid #f5c6cb;
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .reason-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8bbd044, transparent 70%);
+    }
+    .reason-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px #e8a0a022;
+    }
+    .reason-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+    .reason-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--deep-rose);
+      margin-bottom: 0.5rem;
+    }
+    .reason-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text);
+      opacity: 0.75;
+    }
+
+    /* LETTER SECTION */
+    .letter-box {
+      background: linear-gradient(135deg, #fff5f7, #fffaf8);
+      border: 1px solid #f5c6cb;
+      border-radius: 2rem;
+      padding: 3.5rem 3rem;
+      position: relative;
+      box-shadow: 0 8px 40px #f8bbd020;
+    }
+    .letter-box::before {
+      content: '"';
+      position: absolute;
+      top: 1rem; left: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      color: var(--petal);
+      line-height: 1;
+    }
+    .letter-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 2;
+      color: var(--warm);
+      position: relative;
+      z-index: 1;
+    }
+    .letter-sign {
+      display: block;
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* PROMISE SECTION */
+    .promises {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .promise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .promise-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--petal);
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .promise-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--warm);
+      line-height: 1.6;
+      padding-top: 0.4rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem 5rem;
+      background: linear-gradient(to top, #fce8e8, transparent);
+      position: relative;
+      z-index: 1;
+    }
+    .footer-heart {
+      font-size: 2.5rem;
+      display: block;
+      animation: heartbeat 1.5s ease infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.25); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+    }
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--deep-rose);
+    }
+    .footer-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    /* DIVIDER LINE */
+    .line-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--petal), transparent);
+      margin: 0 auto;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="petals-container" id="petals"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="month-badge">✦ 13 Months ✦</span>
+    <h1>My Dearest<br><em>Meghana</em></h1>
+    <p class="hero-sub">thirteen months of love, laughter &amp; you</p>
+    <p class="from-to">with all my heart — Chinnu</p>
+    <div class="heart-divider">🌸</div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <span>↓</span>
+  </div>
+</div>
+
+<div class="line-divider"></div>
+
+<!-- JOURNEY -->
+<section class="reveal">
+  <span class="section-label">✦ our journey</span>
+  <h2 class="section-title">Every month,<br>a little more <em>in love</em></h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 1</div>
+      <div class="timeline-text">The beginning — the nervous smiles, the butterflies, the moment everything changed.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 3</div>
+      <div class="timeline-text">Late night talks that turned into early mornings. I knew you were special.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 6</div>
+      <div class="timeline-text">Half a year of us. Of laughter, of care, of growing together beautifully.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 9</div>
+      <div class="timeline-text">Nine months of choosing each other, every single day without hesitation.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 12</div>
+      <div class="timeline-text">A whole year — filled with moments I will treasure for the rest of my life.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 13 ✨</div>
+      <div class="timeline-text">Today. Here. Still falling deeper, still grateful, still so incredibly lucky.</div>
+    </div>
+  </div>
+</section>
+
+<div class="line-divider"></div>
+
+<!-- REASONS -->
+<section class="reveal">
+  <span class="section-label">✦ why I love you</span>
+  <h2 class="section-title">13 reasons for<br><em>13 months</em></h2>
+  <div class="reasons-grid">
+    <div class="reason-card"><span class="reason-icon">🌸</span><div class="reason-title">Your Smile</div><div class="reason-desc">It lights up every room and every corner of my heart.</div></div>
+    <div class="reason-card"><span class="reason-icon">✨</span><div class="reason-title">Your Kindness</div><div class="reason-desc">The way you care for others so effortlessly and genuinely.</div></div>
+    <div class="reason-card"><span class="reason-icon">🌙</span><div class="reason-title">Late Night Talks</div><div class="reason-desc">The hours disappear when I'm talking to you.</div></div>
+    <div class="reason-card"><span class="reason-icon">🌹</span><div class="reason-title">Your Strength</div><div class="reason-desc">You handle everything with grace that inspires me daily.</div></div>
+    <div class="reason-card"><span class="reason-icon">💫</span><div class="reason-title">Your Laugh</div><div class="reason-desc">Genuinely the best sound in the entire world. No contest.</div></div>
+    <div class="reason-card"><span class="reason-icon">🎀</span><div class="reason-title">Being You</div><div class="reason-desc">Simply, unapologetically, beautifully — you.</div></div>
+    <div class="reason-card"><span class="reason-icon">🌺</span><div class="reason-title">Your Patience</div><div class="reason-desc">You never give up on me, and that means everything.</div></div>
+    <div class="reason-card"><span class="reason-icon">💌</span><div class="reason-title">Little Moments</div><div class="reason-desc">The small things you do that make my whole day better.</div></div>
+    <div class="reason-card"><span class="reason-icon">🕊️</span><div class="reason-title">Your Peace</div><div class="reason-desc">Being with you feels like coming home, always.</div></div>
+    <div class="reason-card"><span class="reason-icon">🌟</span><div class="reason-title">Your Dreams</div><div class="reason-desc">I love watching you chase what you love so fearlessly.</div></div>
+    <div class="reason-card"><span class="reason-icon">🍀</span><div class="reason-title">My Lucky Star</div><div class="reason-desc">I am the luckiest person to have you choose me.</div></div>
+    <div class="reason-card"><span class="reason-icon">🌷</span><div class="reason-title">Your Heart</div><div class="reason-desc">So full of love, warmth, and all things beautiful.</div></div>
+    <div class="reason-card"><span class="reason-icon">💕</span><div class="reason-title">You &amp; Me</div><div class="reason-desc">13 months, a thousand memories, and a lifetime to go.</div></div>
+  </div>
+</section>
+
+<div class="line-divider"></div>
+
+<!-- LETTER -->
+<section class="reveal">
+  <span class="section-label">✦ a letter</span>
+  <h2 class="section-title">From my heart<br><em>to yours</em></h2>
+  <div class="letter-box">
+    <p class="letter-text">
+      My dear Meghana,<br><br>
+      Thirteen months ago, something quietly shifted — the world got a little warmer, a little softer, a little more worth waking up for. That was you.<br><br>
+      You walked into my life and made even the ordinary feel like something worth remembering. Your laugh, your presence, your way of making everything feel okay — I carry all of it with me every single day.<br><br>
+      I don't have the perfect words to tell you how much these months have meant to me, but I hope you feel it — in every message, every moment, every time I look at you and think: <em>I am so, so lucky.</em><br><br>
+      Thank you for being my person. Thank you for every little thing. Today, tomorrow, and always — it's you, Meghana.
+      <span class="letter-sign">forever yours, Chinnu 💕</span>
+    </p>
+  </div>
+</section>
+
+<div class="line-divider"></div>
+
+<!-- PROMISES -->
+<section class="reveal">
+  <span class="section-label">✦ my promises</span>
+  <h2 class="section-title">Things I promise<br><em>you always</em></h2>
+  <div class="promises">
+    <div class="promise-item"><span class="promise-num">01</span><p class="promise-text">To always make you feel loved, seen, and completely adored.</p></div>
+    <div class="promise-item"><span class="promise-num">02</span><p class="promise-text">To be your safe place — in chaos, in quiet, in everything in between.</p></div>
+    <div class="promise-item"><span class="promise-num">03</span><p class="promise-text">To keep choosing you, every single day, without a second thought.</p></div>
+    <div class="promise-item"><span class="promise-num">04</span><p class="promise-text">To celebrate every tiny milestone, every month, every beautiful moment with you.</p></div>
+    <div class="promise-item"><span class="promise-num">05</span><p class="promise-text">To love you more tomorrow than I do today — which is already so, so much.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-heart">💕</span>
+  <p class="footer-text">Here's to 13 months, and every one after</p>
+  <p class="footer-sub">Chinnu ✦ Meghana ✦ Forever</p>
+</footer>
+
+<script>
+  // Floating petals
+  const petals = ['🌸', '🌺', '🌷', '✿', '❀'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('span');
+    p.className = 'petal';
+    p.textContent = petals[Math.floor(Math.random() * petals.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    p.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+    container.appendChild(p);
+  }
+
+  // Intersection observer for reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
