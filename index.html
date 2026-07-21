@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>16 Months with You 💕</title>
+  <title>16th Month Anniversary 💕</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -460,7 +460,7 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="month-badge" id="month-badge">✦ 16 Months ✦</span>
+    <span class="month-badge" id="month-badge">✦ 16th Month Anniversary ✦</span>
     <h1>My Dearest<br><em>Meghana</em></h1>
     <p class="hero-sub">sixteen months of love, laughter &amp; you</p>
     
@@ -545,7 +545,7 @@
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-month">Month 16 ✨</div>
+      <div class="timeline-month">16th Month Anniversary ✨</div>
       <div class="timeline-text">Today. Here. Still falling deeper, still grateful, still so incredibly lucky.</div>
     </div>
   </div>
@@ -556,7 +556,7 @@
 <!-- REASONS -->
 <section class="reveal">
   <span class="section-label">✦ why I love you</span>
-  <h2 class="section-title">16 reasons for<br><em>16 months</em></h2>
+  <h2 class="section-title">16 reasons for our<br><em>16th Month Anniversary</em></h2>
   <div class="reasons-grid">
     <div class="reason-card"><span class="reason-icon">🌸</span><div class="reason-title">Your Smile</div><div class="reason-desc">It lights up every room and every corner of my heart.</div></div>
     <div class="reason-card"><span class="reason-icon">✨</span><div class="reason-title">Your Kindness</div><div class="reason-desc">The way you care for others so effortlessly and genuinely.</div></div>
@@ -573,7 +573,7 @@
     <div class="reason-card"><span class="reason-icon">💝</span><div class="reason-title">Your Support</div><div class="reason-desc">Standing by me through thick and thin, being my cheerleader.</div></div>
     <div class="reason-card"><span class="reason-icon">🍭</span><div class="reason-title">Our Inside Jokes</div><div class="reason-desc">The laughter only we share, and secrets only we know.</div></div>
     <div class="reason-card"><span class="reason-icon">🧸</span><div class="reason-title">Your Warmth</div><div class="reason-desc">The comfort of your touch and the safety of your arms.</div></div>
-    <div class="reason-card"><span class="reason-icon">💕</span><div class="reason-title">You &amp; Me</div><div class="reason-desc">16 months, a thousand memories, and a lifetime to go.</div></div>
+    <div class="reason-card"><span class="reason-icon">💕</span><div class="reason-title">You &amp; Me</div><div class="reason-desc">16 months of love, a thousand memories, and a lifetime to go.</div></div>
   </div>
 </section>
 
@@ -613,7 +613,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-heart">💕</span>
-  <p class="footer-text">Here's to 16 months, and every one after</p>
+  <p class="footer-text">Here's to our 16th Month Anniversary, and every one after</p>
   <p class="footer-sub">Chinnu ✦ Meghana ✦ Forever</p>
 </footer>
 
@@ -682,10 +682,17 @@
     document.getElementById('count-minutes').textContent = displayMinutes.toString().padStart(2, '0');
     document.getElementById('count-seconds').textContent = displaySeconds.toString().padStart(2, '0');
     
+    // Helper to get ordinal suffix (e.g. 16th)
+    function getOrdinal(n) {
+      const pr = new Intl.PluralRules('en-US', { type: 'ordinal' });
+      const suffixes = { one: 'st', two: 'nd', few: 'rd', other: 'th' };
+      return `${n}${suffixes[pr.select(n)] || 'th'}`;
+    }
+    
     // Dynamically update elements if they exist
     const monthBadge = document.getElementById('month-badge');
     if (monthBadge) {
-      monthBadge.textContent = `✦ ${months} Months ✦`;
+      monthBadge.textContent = `✦ ${getOrdinal(months)} Month Anniversary ✦`;
     }
   }
   
