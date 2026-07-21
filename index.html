@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>13 Months with You 💕</title>
+  <title>16 Months with You 💕</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -415,6 +415,42 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* LIVE COUNTER */
+    .counter-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem auto 2.5rem;
+      animation: fadeUp 1.4s 1.0s ease both;
+      flex-wrap: wrap;
+    }
+    .counter-box {
+      background: rgba(255, 248, 245, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(232, 160, 160, 0.4);
+      padding: 0.8rem 1.2rem;
+      border-radius: 1rem;
+      min-width: 80px;
+      box-shadow: 0 8px 24px rgba(232, 160, 160, 0.08);
+      text-align: center;
+    }
+    .counter-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--warm);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .counter-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-weight: 400;
+    }
   </style>
 </head>
 <body>
@@ -424,9 +460,33 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="month-badge">✦ 13 Months ✦</span>
+    <span class="month-badge" id="month-badge">✦ 16 Months ✦</span>
     <h1>My Dearest<br><em>Meghana</em></h1>
-    <p class="hero-sub">thirteen months of love, laughter &amp; you</p>
+    <p class="hero-sub">sixteen months of love, laughter &amp; you</p>
+    
+    <div class="counter-container">
+      <div class="counter-box">
+        <div class="counter-value" id="count-months">0</div>
+        <div class="counter-label">Months</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="count-days">0</div>
+        <div class="counter-label">Days</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="count-hours">00</div>
+        <div class="counter-label">Hours</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="count-minutes">00</div>
+        <div class="counter-label">Minutes</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="count-seconds">00</div>
+        <div class="counter-label">Seconds</div>
+      </div>
+    </div>
+
     <p class="from-to">with all my heart — Chinnu</p>
     <div class="heart-divider">🌸</div>
   </div>
@@ -470,7 +530,22 @@
     </div>
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-month">Month 13 ✨</div>
+      <div class="timeline-month">Month 13</div>
+      <div class="timeline-text">Entering our second year, more connected and sure of us than ever.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 14</div>
+      <div class="timeline-text">Fourteen months of sharing dreams, listening to our favorite songs, and matching paces.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 15</div>
+      <div class="timeline-text">Fifteen months of building our own little world, full of trust and sweet memories.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Month 16 ✨</div>
       <div class="timeline-text">Today. Here. Still falling deeper, still grateful, still so incredibly lucky.</div>
     </div>
   </div>
@@ -481,7 +556,7 @@
 <!-- REASONS -->
 <section class="reveal">
   <span class="section-label">✦ why I love you</span>
-  <h2 class="section-title">13 reasons for<br><em>13 months</em></h2>
+  <h2 class="section-title">16 reasons for<br><em>16 months</em></h2>
   <div class="reasons-grid">
     <div class="reason-card"><span class="reason-icon">🌸</span><div class="reason-title">Your Smile</div><div class="reason-desc">It lights up every room and every corner of my heart.</div></div>
     <div class="reason-card"><span class="reason-icon">✨</span><div class="reason-title">Your Kindness</div><div class="reason-desc">The way you care for others so effortlessly and genuinely.</div></div>
@@ -495,7 +570,10 @@
     <div class="reason-card"><span class="reason-icon">🌟</span><div class="reason-title">Your Dreams</div><div class="reason-desc">I love watching you chase what you love so fearlessly.</div></div>
     <div class="reason-card"><span class="reason-icon">🍀</span><div class="reason-title">My Lucky Star</div><div class="reason-desc">I am the luckiest person to have you choose me.</div></div>
     <div class="reason-card"><span class="reason-icon">🌷</span><div class="reason-title">Your Heart</div><div class="reason-desc">So full of love, warmth, and all things beautiful.</div></div>
-    <div class="reason-card"><span class="reason-icon">💕</span><div class="reason-title">You &amp; Me</div><div class="reason-desc">13 months, a thousand memories, and a lifetime to go.</div></div>
+    <div class="reason-card"><span class="reason-icon">💝</span><div class="reason-title">Your Support</div><div class="reason-desc">Standing by me through thick and thin, being my cheerleader.</div></div>
+    <div class="reason-card"><span class="reason-icon">🍭</span><div class="reason-title">Our Inside Jokes</div><div class="reason-desc">The laughter only we share, and secrets only we know.</div></div>
+    <div class="reason-card"><span class="reason-icon">🧸</span><div class="reason-title">Your Warmth</div><div class="reason-desc">The comfort of your touch and the safety of your arms.</div></div>
+    <div class="reason-card"><span class="reason-icon">💕</span><div class="reason-title">You &amp; Me</div><div class="reason-desc">16 months, a thousand memories, and a lifetime to go.</div></div>
   </div>
 </section>
 
@@ -508,7 +586,7 @@
   <div class="letter-box">
     <p class="letter-text">
       My dear Meghana,<br><br>
-      Thirteen months ago, something quietly shifted — the world got a little warmer, a little softer, a little more worth waking up for. That was you.<br><br>
+      Sixteen months ago, something quietly shifted — the world got a little warmer, a little softer, a little more worth waking up for. That was you.<br><br>
       You walked into my life and made even the ordinary feel like something worth remembering. Your laugh, your presence, your way of making everything feel okay — I carry all of it with me every single day.<br><br>
       I don't have the perfect words to tell you how much these months have meant to me, but I hope you feel it — in every message, every moment, every time I look at you and think: <em>I am so, so lucky.</em><br><br>
       Thank you for being my person. Thank you for every little thing. Today, tomorrow, and always — it's you, Meghana.
@@ -535,7 +613,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-heart">💕</span>
-  <p class="footer-text">Here's to 13 months, and every one after</p>
+  <p class="footer-text">Here's to 16 months, and every one after</p>
   <p class="footer-sub">Chinnu ✦ Meghana ✦ Forever</p>
 </footer>
 
@@ -565,6 +643,55 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(r => observer.observe(r));
+
+  // Live counter calculation (March 22, 2025)
+  function updateCounter() {
+    const startDate = new Date('2025-03-22T00:00:00');
+    const now = new Date();
+    
+    // Calculate difference in months
+    let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+    
+    // Get the anniversary date in the current month of interest
+    let currentAnniversary = new Date(startDate);
+    currentAnniversary.setMonth(startDate.getMonth() + months);
+    
+    // If the current date/time is before this month's anniversary, backtrack 1 month
+    if (now < currentAnniversary) {
+      months--;
+      currentAnniversary = new Date(startDate);
+      currentAnniversary.setMonth(startDate.getMonth() + months);
+    }
+    
+    // Time difference between now and the last monthly anniversary
+    const diffMs = now - currentAnniversary;
+    
+    const diffSeconds = Math.floor(diffMs / 1000);
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+    
+    const displayDays = diffDays;
+    const displayHours = diffHours % 24;
+    const displayMinutes = diffMinutes % 60;
+    const displaySeconds = diffSeconds % 60;
+    
+    document.getElementById('count-months').textContent = months;
+    document.getElementById('count-days').textContent = displayDays;
+    document.getElementById('count-hours').textContent = displayHours.toString().padStart(2, '0');
+    document.getElementById('count-minutes').textContent = displayMinutes.toString().padStart(2, '0');
+    document.getElementById('count-seconds').textContent = displaySeconds.toString().padStart(2, '0');
+    
+    // Dynamically update elements if they exist
+    const monthBadge = document.getElementById('month-badge');
+    if (monthBadge) {
+      monthBadge.textContent = `✦ ${months} Months ✦`;
+    }
+  }
+  
+  // Update every second
+  updateCounter();
+  setInterval(updateCounter, 1000);
 </script>
 </body>
 </html>
